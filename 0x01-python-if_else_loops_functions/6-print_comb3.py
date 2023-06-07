@@ -4,4 +4,4 @@ for i in range(10):
         if i * 10 + j != 89:
             print(f"{i}{j}, ", end="")
         else:
-            print("89")
+            print(f"{89}")

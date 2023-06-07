@@ -5,4 +5,4 @@ def uppercase(str):
             print(chr(ord(i) + ord('A') - ord('a')), end='', flush=True)
         else:
             print(i, end='')
-    print("")
+    print(f"")

@@ -6,4 +6,4 @@ for i in range(99):
         message += '0'
     message += str(i)
     print(f"{message}, ", end="")
-print("99")
+print(f"{99}")
