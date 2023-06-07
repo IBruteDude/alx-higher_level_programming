@@ -1,8 +1,9 @@
 #!/usr/bin/python3
 def uppercase(str):
+    newstr = ""
     for i in str:
         if ord('a') <= ord(i) and ord(i) <= ord('z'):
-            print("{}".format(chr(ord(i) + 65 - 97)), end='', flush=True)
+            newstr += chr(ord(i) + 65 - 97)
         else:
-            print("{}".format(i), end='')
-    print("")
+            newstr += i
+    print(newstr)
