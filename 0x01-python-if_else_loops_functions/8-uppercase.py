@@ -6,6 +6,3 @@ def uppercase(str):
         else:
             print("{}".format(i), end='')
     print("")
-
-
-uppercase("das")
