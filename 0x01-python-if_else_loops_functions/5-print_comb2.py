@@ -5,5 +5,5 @@ for i in range(99):
     if i < 10:
         message += '0'
     message += str(i)
-    print(f"{message}, ", end="")
-print(f"{99}")
+    print("{}, ".format(message), end="")
+print("99")
