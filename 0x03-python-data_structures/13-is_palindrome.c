@@ -12,7 +12,7 @@ int is_palindrome(listint_t **head)
 	node = *head;
 	while (node != NULL)
 		len++, node = node->next;
-	node_arr = (int *)malloc((len + 1) * sizeof(int));
+	node_arr = (int *)malloc(len * sizeof(int));
 	node = *head;
 	for (i = 0; i < len; i++)
 		node_arr[i] = node->n, node = node->next;
