@@ -8,6 +8,8 @@ class Square:
                 raise ValueError("size must be >= 0")
         else:
             raise TypeError("size must be an integer")
+
+
 if __name__ == '__main__':
     my_square_1 = Square(3)
     print(type(my_square_1))
@@ -40,4 +42,3 @@ if __name__ == '__main__':
         print(my_square_4.__dict__)
     except Exception as e:
         print(e)
-

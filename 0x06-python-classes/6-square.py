@@ -12,11 +12,14 @@ class Square:
                 raise ValueError("size must be >= 0")
         else:
             raise TypeError("size must be an integer")
+
     def area(self):
         return self.__size * self.__size
+
     @property
     def size(self):
         return self.__size
+
     @size.setter
     def size(self, value):
         if type(value) is int:
@@ -26,23 +29,27 @@ class Square:
                 raise ValueError("size must be >= 0")
         else:
             raise TypeError("size must be an integer")
+
     @property
     def position(self):
         return self.__position
+
     @position.setter
     def position(self, value):
         if type(value) is tuple and len(value) == 2:
             self.__position = value
         else:
             raise TypeError("position must be a tuple of 2 positive integers")
+
     def my_print(self):
         if self.size == 0:
             print()
         else:
-            if self.position[0] <= 0:
-                print("{}".format(('#' * self.size + '\n') * self.size), end='')
-            else:
-                print("{}".format((('_' * self.position[0]) + '#' * self.size + '\n') * self.size), end='')
+            line = ('#' * self.size + '\n')
+            if self.position[0] > 0:
+                line = ('_' * self.position[0]) + line
+            print("{}".format(line * self.size), end='')
+
 
 if __name__ == '__main__':
     my_square_1 = Square(3)

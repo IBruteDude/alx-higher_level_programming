@@ -8,8 +8,11 @@ class Square:
                 raise ValueError("size must be >= 0")
         else:
             raise TypeError("size must be an integer")
+
     def area(self):
         return self.__size * self.__size
+
+
 if __name__ == '__main__':
     my_square_1 = Square(3)
     print("Area: {}".format(my_square_1.area()))
@@ -26,4 +29,3 @@ if __name__ == '__main__':
 
         my_square_2 = Square(5)
         print("Area: {}".format(my_square_2.area()))
-
