@@ -1,6 +1,28 @@
 #!/usr/bin/python3
+"""a simple Square class module.
+
+    Contents:
+        The (Square) class definition.
+        A basic test of its position property and my_print method.
+"""
+
+
 class Square:
+    """a simple Square class with a side-length and position.
+        Attributes:
+            __size (int): the side-length of the square.
+            __position (int, int): the position tuple of the square
+    """
     def __init__(self, size=0, position=(0, 0)):
+        """an error-checked initialiser for the two Square attributes.
+
+        Args:
+            size (int, optional): input value for side-length. Defaults to 0.
+
+        Raises:
+            ValueError: Only non-negative size's value is allowed.
+            TypeError: the size variable has to be of type int.
+        """
         if type(position) is tuple and len(position) == 2:
             self.__position = position
         else:
@@ -14,10 +36,17 @@ class Square:
             raise TypeError("size must be an integer")
 
     def area(self):
+        """calculate the area of the square.
+
+        Returns:
+            int: the area of the square.
+        """
         return self.__size * self.__size
 
     @property
     def size(self):
+        """a size property for the Square.__size field.
+        """
         return self.__size
 
     @size.setter
@@ -32,6 +61,8 @@ class Square:
 
     @property
     def position(self):
+        """a position property for the Square.__position field.
+        """
         return self.__position
 
     @position.setter
@@ -42,12 +73,14 @@ class Square:
             raise TypeError("position must be a tuple of 2 positive integers")
 
     def my_print(self):
+        """a position aware printer function for the square.
+        """
         if self.size == 0:
             print()
         else:
             line = ('#' * self.size + '\n')
             if self.position[0] > 0:
-                line = ('_' * self.position[0]) + line
+                line = (' ' * self.position[0]) + line
             print("{}".format(line * self.size), end='')
 
 

@@ -1,6 +1,28 @@
 #!/usr/bin/python3
+"""a simple Square class module.
+
+    Contents:
+        The (Square) class definition.
+        A basic test of its size property.
+"""
+
+
 class Square:
+    """a simple Square class with a side-length field and an area method.
+
+        Attributes:
+            __size (int): the side-length of the square.
+    """
     def __init__(self, size=0):
+        """an error-checked initialiser for the Square.__size attribute.
+
+        Args:
+            size (int, optional): input value for side-length. Defaults to 0.
+
+        Raises:
+            ValueError: Only non-negative size's value is allowed.
+            TypeError: the size variable has to be of type int.
+        """
         if type(size) is int:
             if size >= 0:
                 self.__size = size
@@ -10,10 +32,17 @@ class Square:
             raise TypeError("size must be an integer")
 
     def area(self):
+        """calculate the area of the square.
+
+        Returns:
+            int: the area of the square.
+        """
         return self.__size * self.__size
 
     @property
     def size(self):
+        """a size property for the Square.__size field.
+        """
         return self.__size
 
     @size.setter

@@ -1,6 +1,22 @@
 #!/usr/bin/python3
+"""a simple Square class module.
+
+    contains the class (Square) definition, with a basic test of its attribute
+"""
+
+
 class Square:
+    """a simple Square class with a side-length.
+
+    Attributes:
+        __size (int): the side-length of the square.
+    """
     def __init__(self, size):
+        """a non error-checked initialiser function for the __size attribute.
+
+        Args:
+            size (int): the input side-length
+        """
         self.__size = size
 
 
