@@ -79,7 +79,7 @@ class Square:
             print()
         else:
             line = ('#' * self.size + '\n')
-            if self.position[0] > 0:
+            if self.position[0] > 0 and not self.position[1] > 0:
                 line = (' ' * self.position[0]) + line
             print("{}".format(line * self.size), end='')
 
