@@ -2,7 +2,7 @@
 from sys import stderr
 def safe_function(fct, *args):
     try:
-        fct(*args)
+        return fct(*args)
     except Exception as e:
         print("Exception: {}".format(e), file=stderr)
 
@@ -25,5 +25,5 @@ if __name__ == '__main__':
             i += 1
         return len
 
-    result = safe_function(print_list, [1, 2, 3, 4], 10)
+    result = safe_function(print_list, [1, 2, 3, 4], 2)
     print("result of print_list: {}".format(result))
