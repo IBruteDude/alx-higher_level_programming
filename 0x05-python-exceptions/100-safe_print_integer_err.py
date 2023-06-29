@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 from sys import stderr
+
+
 def safe_print_integer_err(value):
     try:
         print("{:d}".format(value))
@@ -24,4 +26,3 @@ if __name__ == '__main__':
     has_been_print = safe_print_integer_err(value)
     if not has_been_print:
         print("{} is not an integer".format(value))
-
