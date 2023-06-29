@@ -27,6 +27,6 @@ if __name__ == '__main__':
     my_l_2 = [2, 0, "H", 2, 7]
     result = list_division(my_l_1, my_l_2, max(len(my_l_1), len(my_l_2)))
     print(result)
-    
+
     result = list_division([10, 2], [], 2)
     print(result)
