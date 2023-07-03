@@ -12,6 +12,7 @@ class Rectangle:
     """
     number_of_instances = 0
     print_symbol = "#"
+
     def __init__(self, width=0, height=0):
         """initialisation function for a Rectangle instance
 
@@ -37,7 +38,9 @@ class Rectangle:
         Returns:
             str: string representation of the Rectangle
         """
-        return ((Rectangle.print_symbol * self.width + '\n') * self.height)[:-1]
+        return (
+            (Rectangle.print_symbol * self.width + '\n') * self.height
+        )[:-1]
 
     def __del__(self):
         """Instance deleter special method
@@ -110,5 +113,5 @@ if __name__ == '__main__':
     print("--")
     my_rectangle_3.print_symbol = ["C", "is", "fun!"]
     print(my_rectangle_3)
-    
+
     print("--")

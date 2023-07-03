@@ -12,6 +12,7 @@ class Rectangle:
     """
     number_of_instances = 0
     print_symbol = "#"
+
     def __init__(self, width=0, height=0):
         """initialisation function for a Rectangle instance
 
@@ -37,7 +38,9 @@ class Rectangle:
         Returns:
             str: string representation of the Rectangle
         """
-        return ((Rectangle.print_symbol * self.width + '\n') * self.height)[:-1]
+        return (
+            (Rectangle.print_symbol * self.width + '\n') * self.height
+            )[:-1]
 
     def __del__(self):
         """Instance deleter special method
@@ -90,6 +93,7 @@ class Rectangle:
         if self.width == 0 or self.height == 0:
             return 0
         return 2 * (self.width + self.height)
+
     @staticmethod
     def bigger_or_equal(rect_1, rect_2):
         """a static comparison method for rectangles
@@ -112,7 +116,7 @@ class Rectangle:
             return rect_1
         if rect_1.area() < rect_2.area():
             return rect_2
-        
+
     @classmethod
     def square(cls, size=0):
         return Rectangle(size, size)
@@ -120,5 +124,6 @@ class Rectangle:
 
 if __name__ == '__main__':
     my_square = Rectangle.square(5)
-    print("Area: {} - Perimeter: {}".format(my_square.area(), my_square.perimeter()))
+    print("Area: {} - Perimeter: {}".format(
+        my_square.area(), my_square.perimeter()))
     print(my_square)
