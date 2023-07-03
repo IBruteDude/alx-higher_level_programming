@@ -30,6 +30,8 @@ class Rectangle:
         Returns:
             str: string representation of the Rectangle
         """
+        if self.width == 0 or  self.height == 0:
+            return ""
         return (('#' * self.width + '\n') * self.height)[:-1]
 
     @property
