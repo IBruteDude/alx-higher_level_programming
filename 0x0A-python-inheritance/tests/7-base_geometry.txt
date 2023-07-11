@@ -1,0 +1,4 @@
+'name' 'Kamar'
+'int' 4
+'Negative' -1
+'blah' 3.3
