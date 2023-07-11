@@ -1,9 +1,13 @@
 #!/usr/bin/python3
+"""simple module for add_attribute function"""
+
+
 def add_attribute(obj, name, value):
-    if getattr(obj, name) is not None:
+    """attempts to add attribute to an object"""
+    if getattr(obj, name, None) is not None:
         raise TypeError("can't add new attribute")
     setattr(obj, name, value)
-    
+
 
 if __name__ == '__main__':
 	pass
