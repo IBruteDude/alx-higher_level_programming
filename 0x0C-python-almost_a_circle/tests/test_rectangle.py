@@ -1,9 +1,9 @@
 from unittest import TestCase, main
 """Unit testing the Rectangle class"""
 
-Base = __import__("...models").Base
-from ...models.rectangle import Rectangle
-from ...models.square import Square
+from models import base
+from models.rectangle import Rectangle
+from models.square import Square
 
 class TestRectangle(TestCase):
     """Rectangle instances unittesting class"""
