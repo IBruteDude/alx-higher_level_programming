@@ -1,6 +1,8 @@
 from unittest import TestCase, main
 """Unit testing the Rectangle class"""
 
+import ..models.base
+
 Base = __import__("0x0C-python-almost_a_circle.base")
 Rectangle = __import__("models.rectangle")
 Square = __import__("models.square")
