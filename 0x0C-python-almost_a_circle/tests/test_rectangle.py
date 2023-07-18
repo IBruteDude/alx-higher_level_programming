@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 from unittest import TestCase, main
 """Unit testing the Rectangle class"""
 

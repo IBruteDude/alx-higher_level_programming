@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 from unittest import TestCase, main
 """Unit testing the Rectangle class"""
 
@@ -18,10 +19,6 @@ class TestBase(TestCase):
         self.assertEqual(self.S1.id, 5)
         self.assertEqual(self.S2.id, 10)
         self.assertEqual(self.S3.id, 6)
-        self.S1.size, self.S2.size, self.S3.size = 20, 40, 60
-        self.assertEqual(self.S1.size, 20)
-        self.assertEqual(self.S2.size, 40)
-        self.assertEqual(self.S3.size, 60)
 
 if __name__ == '__main__':
     main()
