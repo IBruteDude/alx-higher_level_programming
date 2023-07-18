@@ -1,4 +1,4 @@
-from json import dumps, dump, loads
+from json import dumps, loads
 """Module for defining the Base class"""
 
 
@@ -20,12 +20,25 @@ class Base:
 
     @staticmethod
     def to_json_string(list_dictionaries):
+        """serialises a list of dict objects into the json format
+
+        Args:
+            list_dictionaries (list[dict]): the list of dicts
+
+        Returns:
+            str: the serialised json string
+        """
         if list_dictionaries is None or len(list_dictionaries) == 0:
             return "[]"
         return dumps(list_dictionaries)
 
     @classmethod
     def save_to_file(cls, list_objs):
+        """saves a list of instances of an inheriting class to a json file
+
+        Args:
+            list_objs (list[Base]): list of instances
+        """
         with open(cls.__name__ + '.json', 'w') as file:
             if list_objs is None or len(list_objs) == 0:
                 file.write("[]")
@@ -34,12 +47,25 @@ class Base:
 
     @staticmethod
     def from_json_string(json_string):
+        """deserialises a string of json data into python objects
+
+        Args:
+            json_string (str): the input json encoded string
+
+        Returns:
+            Any: the decoded objects
+        """
         if json_string is None or len(json_string) == 0:
             return []
         return loads(json_string)
 
     @classmethod
     def create(cls, **dictionary):
+        """creates an instance of a specific inheriting class with
+
+        Returns:
+            (Rectangle | square): the created instance
+        """
         ctr_args = [1] * len(dictionary)
         instance = cls(*ctr_args)
         instance.update(**dictionary)
@@ -47,6 +73,7 @@ class Base:
 
     @classmethod
     def load_from_file(cls):
+        """loads and instantiates a json file as a specified class"""
         try:
             file = open(cls.__name__ + '.json', 'r')
         except Exception:

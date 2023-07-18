@@ -16,11 +16,17 @@ class Rectangle(Base):
         return self.width * self.height
 
     def display(self):
+        """renders the Rectangle positionally with '#' characters"""
         line = [' ' * self.x + '#' * self.width]
         shape_render = '\n' * self.y + '\n'.join(line * self.height)
         print(shape_render)
 
     def update(self, *args, **kwargs):
+        """change specified attributes of the object
+
+        Returns:
+            Rectangle: the modified version
+        """
         if len(args) == 0:
             for field, value in kwargs.items():
                 setattr(self, field, value)
@@ -30,6 +36,11 @@ class Rectangle(Base):
         return self
 
     def to_dictionary(self):
+        """convert the Rectangle object into a dict representation
+
+        Returns:
+            dict[int]: the dict representation of the object attributes
+        """
         return {
             'id': self.id,
             'width': self.width,
