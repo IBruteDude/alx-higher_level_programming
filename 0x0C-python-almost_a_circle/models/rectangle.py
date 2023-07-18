@@ -5,7 +5,6 @@ from models.base import Base
 
 class Rectangle(Base):
     """The Rectangle class that inherits from the Base class"""
-
     attr_tuple = ("id", "width", "height", "x", "y")
 
     def area(self):
