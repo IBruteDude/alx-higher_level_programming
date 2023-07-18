@@ -8,11 +8,13 @@ from models.square import Square
 class TestSquare(TestCase):
     """Square instances unittesting class"""
     def setUp(self):
+        """test units setup function"""
         self.S1 = Square(5)
         self.S2 = Square(10, 0, 0)
         self.S3 = Square(6, 2, 3)
 
     def test_size(self):
+        """Testing size property"""
         self.assertEqual(self.S1.size, 5)
         self.assertEqual(self.S2.size, 10)
         self.assertEqual(self.S3.size, 6)
