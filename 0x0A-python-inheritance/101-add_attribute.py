@@ -4,7 +4,7 @@
 
 def add_attribute(obj, name, value):
     """attempts to add attribute to an object"""
-    if getattr(obj, name, "none") != "none":
+    if not hasattr(obj, name):
         raise TypeError("can't add new attribute")
     setattr(obj, name, value)
 
