@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Module for defining the Base class"""
 from json import dumps, loads
+from csv import reader, writer
 
 
 class Base:
@@ -82,3 +83,51 @@ class Base:
         dict_list = Base.from_json_string(file.read())
         file.close()
         return [cls.create(**dict) for dict in dict_list]
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        with open(cls.__name__ + ".csv", mode='w') as file:
+            if cls.__name__ == 'Rectangle':
+                file.write("id,width,height,x,y\n")
+                for obj in list_objs:
+                    file.write(
+                        f"{obj.id},{obj.width},{obj.height},{obj.x},{obj.y}\n"
+                    )
+            elif cls.__name__ == 'Square':
+                file.write("id,size,x,y\n")
+                for obj in list_objs:
+                    file.write(
+                        f"{obj.id},{obj.size},{obj.x},{obj.y}\n"
+                    )
+            else:
+                keys = list(cls.__dict__.keys())
+                file.write(str(keys)[1:-1] + '\n')
+                for obj in list_objs:
+                    file.write(
+                        ','.join([vars(obj)[key] for key in keys]) + '\n'
+                    )
+
+    @classmethod
+    def load_from_file_csv(cls):
+        with open(cls.__name__ + ".csv", mode='r') as file:
+            lines = file.readlines()
+            keys = lines[0][:-1].split(',')
+            del lines[0]
+            # returned_list = []
+            # for line in lines:
+            #     line = line[:-1]
+            #     str_values_list = line.split(',')
+            #     extracted_integers = map(lambda x: int(x), str_values_list)
+            #     attr_list = list(extracted_integers)
+            #     tuple_list = zip(keys, attr_list)
+            #     dict_obj = dict(tuple_list)
+            #     obj = cls.create(**dict_obj)
+            #     returned_list.append(obj)
+            return [
+                cls.create(**dict(
+                    zip(keys, list(
+                        map(lambda x: int(x), line[:-1].split(','))
+                    ))
+                ))
+                for line in lines
+            ]  # returned_list
