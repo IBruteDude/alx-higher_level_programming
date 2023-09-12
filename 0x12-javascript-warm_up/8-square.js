@@ -1,5 +1,5 @@
 #!/usr/bin/node
-if (process.argv.length < 3) console.log('Missing number of occurrences');
+if (process.argv.length < 3) console.log('Missing size');
 else {
   const noIters = parseInt(process.argv[2]);
 
