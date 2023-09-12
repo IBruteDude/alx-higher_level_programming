@@ -6,5 +6,5 @@ else {
     nums[i] = parseInt(nums[i]);
   }
   nums.sort((a, b) => a - b);
-  console.log(nums[nums.length - 1]);
+  console.log(nums[nums.length - 2]);
 }
