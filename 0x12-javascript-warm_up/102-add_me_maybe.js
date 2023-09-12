@@ -1,2 +1,2 @@
 #!/usr/bin/node
-exports.addMeMaybe = (number, func) => func(number);
+exports.addMeMaybe = (number, func) => func(++number);
