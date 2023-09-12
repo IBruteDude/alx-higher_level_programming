@@ -1,4 +1,2 @@
 #!/usr/bin/node
-const { argv } = require('node:process');
-
-console.log(parseInt(argv[2]) + parseInt(argv[3]));
+console.log(parseInt(process.argv[2]) + parseInt(process.argv[3]));
