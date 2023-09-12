@@ -1,9 +1,9 @@
 #!/usr/bin/node
-let i = parseInt(process.argv[2]);
-let prod = 1;
+let number = parseInt(process.argv[2]);
 
-while (i > 0) {
-	prod *= i;
-	i--;
+let fac = function fac(i) {
+	if (!(i > 0))
+		return 1;
+	return i * fac(i - 1);
 }
-console.log(prod);
+console.log(fac(number));
