@@ -1,13 +1,13 @@
 #!/usr/bin/node
-let data = require("./101-data").dict;
-let obj = {};
+const data = require('./101-data').dict;
+const obj = {};
 if (data) {
-	for (let element in data) {
-		if (obj[data[element]]) {
-			obj[data[element]].push(element);
-		} else {
-			obj[data[element]] = [element];
-		}
-	};
+  for (const element in data) {
+    if (obj[data[element]]) {
+      obj[data[element]].push(element);
+    } else {
+      obj[data[element]] = [element];
+    }
+  }
 }
 console.log(obj);
