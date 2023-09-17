@@ -1,25 +1,14 @@
 #!/usr/bin/python3
-""" List all state in database """
-
-
-from sys import argv
+''' Module demonstrating the use of the MySQLdb database API '''
+import sys
 import MySQLdb
 
 if __name__ == '__main__':
-
-    db_user = argv[1]
-    db_passwd = argv[2]
-    db_name = argv[3]
-
-    database = MySQLdb.connect(host='localhost',
-                               port=3306,
-                               user=db_user,
-                               passwd=db_passwd,
-                               db=db_name)
-
-    cursor = database.cursor()
-
-    cursor.execute('SELECT id, name FROM states ORDER BY states.id ASC')
-
-    for row in cursor.fetchall():
-        print(row)
+    args = sys.argv[1:]
+    db = MySQLdb.connect(host="localhost", user=args[0], password=args[1],
+                         database=args[2], port=3306)
+    cursor = db.cursor()
+    assert type(cursor) is MySQLdb.cursors.Cursor
+    cursor.execute("""SELECT id, name FROM states;""")
+    for record in cursor.fetchall():
+        print(record)
