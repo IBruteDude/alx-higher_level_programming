@@ -1,8 +1,7 @@
 #!/usr/bin/python3
-import os
+''' Module demonstrating the use of the MySQLdb database API '''
 import sys
 import MySQLdb
-"""Module demonstrating the use of the MySQLdb database API"""
 
 if __name__ == '__main__':
     args = sys.argv[1:]
