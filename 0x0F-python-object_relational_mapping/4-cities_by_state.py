@@ -9,6 +9,6 @@ if __name__ == '__main__':
                          database=args[2], port=3306)
     cursor = db.cursor()
     assert type(cursor) is MySQLdb.cursors.Cursor
-    cursor.execute("""SELECT id, name FROM cities ORDER BY id ASC;""")
+    cursor.execute("""SELECT cities.id, cities.name, states.name FROM cities JOIN states ON states.id = cities.state_id ORDER BY cities.id ASC;""")
     for record in cursor.fetchall():
         print(record)

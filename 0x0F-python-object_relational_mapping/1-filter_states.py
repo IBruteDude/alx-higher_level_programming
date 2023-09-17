@@ -10,6 +10,8 @@ if __name__ == '__main__':
     cursor = db.cursor()
     assert type(cursor) is MySQLdb.cursors.Cursor
     cursor.execute("""SELECT id, name FROM states
-                   WHERE name LIKE 'N%' ORDER BY id ASC;""")
+                   ORDER BY states.id ASC;""")
     for record in cursor.fetchall():
-        print(record)
+        if record[1][0] == 'N':
+            print(record)
+
