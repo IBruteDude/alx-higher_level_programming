@@ -1,12 +1,13 @@
 #!/usr/bin/python3
-import os
-import sys
-import MySQLdb
+''' Module defining the sql tabled model of the City class '''
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy import Column, INT, VARCHAR
+from sqlalchemy.schema import ForeignKey
 
-if __name__ == '__main__':
-    args = sys.argv[1:]
-    cursor = MySQLdb.connect(host="localhost", user=args[0], password=args[1], database=args[2], port=3306).cursor()
+Base = declarative_base()
 
-    cursor.execute("SELECT id, name FROM states;")
-    for record in cursor.fetchall():
-        print(record)
+class City(Base):
+    __tablename__ = 'cities'
+    id = Column(INT(), primary_key=True)
+    name = Column(VARCHAR(128), nullable=False)
+    state_id = Column(INT, ForeignKey("states.id"))

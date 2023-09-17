@@ -1,13 +1,13 @@
 #!/usr/bin/python3
-import os
-import sys
-import sqlalchemy
+''' Module defining the sql tabled model of the State class '''
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy import Column, INT, VARCHAR
 
-if __name__ == '__main__':
-    args = sys.argv[1:]
-    sqlalchemy.create_engine("")
-    cursor = MySQLdb.connect(host="localhost", user=args[0], password=args[1], database=args[2], port=3306).cursor()
 
-    cursor.execute("SELECT id, name FROM states;")
-    for record in cursor.fetchall():
-        print(record)
+Base = declarative_base()
+
+class State(Base):
+    __tablename__ = 'states'
+    id = Column(INT, primary_key=True)
+    name = Column(VARCHAR(128), nullable=False)
+    mysql_charset = 'latin1'
