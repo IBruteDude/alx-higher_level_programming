@@ -1,12 +1,17 @@
 #!/usr/bin/python3
-import os
-import sys
-import MySQLdb
+from sys import argv
+''' Module demonstrating the use of the sqlalchemy database API '''
+from sqlalchemy.orm import Session
+from sqlalchemy import create_engine
+from model_state import State
 
 if __name__ == '__main__':
-    args = sys.argv[1:]
-    cursor = MySQLdb.connect(host="localhost", user=args[0], password=args[1], database=args[2], port=3306).cursor()
-
-    cursor.execute("SELECT id, name FROM states;")
-    for record in cursor.fetchall():
-        print(record)
+    host, port = "localhost", 3306
+    user, password, database = argv[1], argv[2], argv[3]
+    engine = create_engine(
+        f"mysql://{user}:{password}@{host}:{port}/{database}"
+    )
+    session = Session(bind=engine)
+    session.query(State).filter(State.id.like(2)).first().name = 'New Mexico'
+    session.commit()
+    session.close()

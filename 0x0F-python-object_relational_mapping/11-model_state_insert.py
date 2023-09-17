@@ -12,4 +12,8 @@ if __name__ == '__main__':
         f"mysql://{user}:{password}@{host}:{port}/{database}"
     )
     session = Session(bind=engine)
-    record = session
+    new_state = State(name='Louisiana')
+    session.add(new_state)
+    print(session.query(State).filter(State.name.like('Louisiana')).first().id)
+    session.commit()
+    session.close()
