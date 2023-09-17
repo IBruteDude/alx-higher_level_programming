@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 ''' Module demonstrating the use of the sqlalchemy database API '''
 from sys import argv
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import Session, relationship
 from sqlalchemy import create_engine
 from model_state import State
 from model_city import City
@@ -13,5 +13,5 @@ if __name__ == '__main__':
         f"mysql://{user}:{password}@{host}:{port}/{database}"
     )
     session = Session(bind=engine)
-    for record in session.query(City).all():
-        print(f"{record.state_id}: ({record.id}) {record.name}")
+    for record in session.query(City).join(City.state).all():
+        print(f"{record.state}: ({record.id}) {record.name}")

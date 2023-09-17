@@ -9,7 +9,7 @@ if __name__ == '__main__':
                          database=args[2], port=3306)
     cursor = db.cursor()
     assert type(cursor) is MySQLdb.cursors.Cursor
-    cursor.execute("""SELECT id, name FROM states WHERE name LIKE '{:s}'
+    cursor.execute("""SELECT id, name FROM states WHERE name LIKE '{}'
                    ORDER BY states.id ASC;""".format(args[3]))
     for record in cursor.fetchall():
         print(record)
