@@ -6,7 +6,9 @@ from sqlalchemy.schema import ForeignKey
 
 Base = declarative_base()
 
+
 class City(Base):
+    ''' The declarative representation of the City class table '''
     __tablename__ = 'cities'
     id = Column(INT(), primary_key=True)
     name = Column(VARCHAR(128), nullable=False)
