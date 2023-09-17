@@ -12,5 +12,6 @@ if __name__ == '__main__':
         f"mysql://{user}:{password}@{host}:{port}/{database}"
     )
     session = Session(bind=engine)
-    for record in session.query(State).filter(State.name.like('%a%')).order_by(State.id):
+    for record in session.query(State).filter(
+            State.name.like('%a%')).order_by(State.id):
         print(f"{record.id}: {record.name}")
