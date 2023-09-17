@@ -13,4 +13,3 @@ class City(Base):
     id = Column(INT(), primary_key=True)
     name = Column(VARCHAR(128), nullable=False)
     state_id = Column(INT, ForeignKey("states.id"))
-    state = relationship("State", back_populates="cities")

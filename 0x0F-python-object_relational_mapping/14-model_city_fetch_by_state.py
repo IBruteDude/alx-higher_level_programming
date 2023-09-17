@@ -13,5 +13,6 @@ if __name__ == '__main__':
         f"mysql://{user}:{password}@{host}:{port}/{database}"
     )
     session = Session(bind=engine)
-    for record in session.query(City).join(City.state).all():
-        print(f"{record.state}: ({record.id}) {record.name}")
+    for state, city in session.query(State, City).filter(
+            State.id == City.state_id).order_by(City.id).all():
+        print(f"{state.name}: ({city.id}) {city.name}")

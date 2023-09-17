@@ -14,4 +14,3 @@ class State(Base):
     id = Column(INT, primary_key=True)
     name = Column(VARCHAR(128), nullable=False)
     mysql_charset = 'latin1'
-    cities = relationship("City", back_populates="state")

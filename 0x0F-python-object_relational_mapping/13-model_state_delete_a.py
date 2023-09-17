@@ -14,8 +14,8 @@ if __name__ == '__main__':
     session = Session(bind=engine)
     new_state = State(name='Louisiana')
     session.add(new_state)
-    all_as = session.query(State).filter(State.name.like('%a%')).all()
-    for a in all_as:
-        session.delete(a)
+    all_as = session.query(State).filter(State.name.like('%a%')).delete()
+    # for a in all_as:
+    #     session.delete(a)
     session.commit()
     session.close()
