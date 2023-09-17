@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-from sys import argv
 ''' Module demonstrating the use of the sqlalchemy database API '''
+from sys import argv
 from sqlalchemy.orm import Session
 from sqlalchemy import create_engine
 from model_state import State
