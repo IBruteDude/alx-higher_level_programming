@@ -12,4 +12,5 @@ if __name__ == '__main__':
     cursor.execute("""SELECT id, name FROM states WHERE name LIKE '{}'
                    ORDER BY states.id ASC;""".format(args[3]))
     for record in cursor.fetchall():
-        print(record)
+        if record[1] == args[3]:
+            print(record)
