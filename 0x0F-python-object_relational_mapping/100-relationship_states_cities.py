@@ -4,7 +4,7 @@ from sys import argv
 from sqlalchemy.orm import Session
 from sqlalchemy import create_engine
 from relationship_state import State
-from relationship_city import City
+from relationship_city import City, Base
 
 if __name__ == '__main__':
     host, port = "localhost", 3306
@@ -13,6 +13,8 @@ if __name__ == '__main__':
         f"mysql://{user}:{password}@{host}:{port}/{database}"
     )
     session = Session(bind=engine)
+    Base.metadata.create_all(engine)
     state = State(name='California')
     state.cities.append(City(name='San Francisco'))
     session.add(state)
+    session.commit()
