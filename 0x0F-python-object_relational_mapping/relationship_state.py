@@ -1,12 +1,14 @@
 #!/usr/bin/python3
-import os
-import sys
-import MySQLdb
+''' Module defining the sql tabled model of the State class '''
+from sqlalchemy import Column, Integer, String
+from sqlalchemy.orm import relationship
+from relationship_city import City, Base
 
-if __name__ == '__main__':
-    args = sys.argv[1:]
-    cursor = MySQLdb.connect(host="localhost", user=args[0], password=args[1], database=args[2], port=3306).cursor()
 
-    cursor.execute("SELECT id, name FROM states;")
-    for record in cursor.fetchall():
-        print(record)
+class State(Base):
+    ''' The declarative representation of the State class table '''
+    __tablename__ = 'states'
+    id = Column(Integer, primary_key=True)
+    name = Column(String(128), nullable=False)
+    cities = relationship('City', backref='state', cascade='all, delete')
+    mysql_charset = 'latin1'
